@@ -18,11 +18,13 @@ console.log("is this working?");
  console.log(database);
 
 
-//on pageload hide the logged in cards
-$(document).ready(function() {
-    $("#geeting-card").hide();
+//hide the greeeting card for now 
+$(document).ready(function hiddenCards() {
+ $("#greeting-card").hide();
 
 });
+
+
 
 
 
@@ -47,6 +49,19 @@ $(document).ready(function() {
      console.log(username);
      console.log(useremail);
 
+    // firebase password function to authenticate the password 
+
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // error message to the console for now
+      console.log("Error : " + errorMessage);
+      //error message in an alert for now as well
+      alert("Oops! There was an error :(  Error : " + errorMessage);
+
+    });
+
 
      ////clear input fields
 
@@ -57,12 +72,30 @@ $(document).ready(function() {
 
  });
 
+ // this givrs us the fire base authentication for the user ---- it gives booleans for what sould happen
+ // if the user is signed in then we will hide the sign in form & show a greeting 
+ //if the user is not signed in we will just hide the greeting
+ // we already have the form showing on line 22-25 when the page loads
 
  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       $("#login-form").hide();
-      $("#geeting-card").show();
+      $("#greeting-card").show();
     } else {
         $("#geeting-card").hide();
     }
   });
+
+
+
+
+
+
+  
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   // ...
+  // });
