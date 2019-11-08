@@ -96,6 +96,9 @@ $("#log-out").on("click", function (event) {
 
 
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 //   // Handle Errors here.
@@ -103,9 +106,6 @@ $("#log-out").on("click", function (event) {
 //   var errorMessage = error.message;
 //   // ...
 // });
-
-
-
 
 
 // //////FROM FIREBASE///////
@@ -120,4 +120,11 @@ $("#log-out").on("click", function (event) {
 
 // });
 
-////clear input fields
+
+// //// click event to launch the MEMBER SIGN IN MODAL
+// $("#member-link").on("click", function (event) {
+//   event.preventDefault();
+//   console.log("member sign in initiated")
+// })
+
+/// 
