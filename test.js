@@ -94,7 +94,26 @@ $("#log-out").on("click", function (event) {
   })
 });
 
+///// click event for log-in button on MEMBER MODAL
+$("#log-in-button").on("click", function (event) {
+ event.preventDefault();
+ console.log("sign-in button for members clicked");
 
+  /// get existing member info 
+  memberEmail = ($("#member-email").val().trim()).toLowerCase;      /////to lower case
+  memberPassword = $("#member-password").val().trim();
+
+  auth.signInWithEmailAndPassword(memberEmail, memberPassword).then(cred => {
+    console.log(cred.user);
+
+    // close the MEMBER modal and reset the form 
+    M.Modal.get($("#sign-in-modal")).close();
+    $("#sign-in-form").reset();
+
+
+  })
+
+});
 
 
 
