@@ -81,15 +81,20 @@ auth.onAuthStateChanged(function (user) {
     $("#user-greeting").text(username);
     console.log(username);
   } else {
-    $("#geeting-card").hide();
+    $("#greeting-card").hide();
   }
 });
 
 // /// lets create a logout function
 $("#log-out").on("click", function (event) {
   event.preventDefault();
+  $("#sign-up-form").show();
+  $("#greeting-card").hide();
    auth.signOut().then(() => {
     console.log("user has logged out");
+
+    /////////may want to delete this later but this will show the original form again
+    
    
   })
 });
