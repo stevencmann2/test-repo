@@ -100,10 +100,10 @@ $("#log-in-button").on("click", function (event) {
  console.log("sign-in button for members clicked");
 
   /// get existing member info 
-  memberEmail = ($("#member-email").val().trim()).toLowerCase;      /////to lower case
-  memberPassword = $("#member-password").val().trim();
+  email = ($("#member-email").val().trim()).toLowerCase;      /////to lower case
+  password = $("#member-password").val().trim();
 
-  auth.signInWithEmailAndPassword(memberEmail, memberPassword).then(cred => {
+  auth.signInWithEmailAndPassword(email, password).then(cred => {
     console.log(cred.user);
 
     // close the MEMBER modal and reset the form 
