@@ -1,5 +1,12 @@
 
 console.log("is this working?");
+
+//hide the greeeting card for now 
+$(document).ready(function hiddenCards() {
+  $("#greeting-card").hide();
+ });
+
+
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyDlGl5lQeCuLx9272W-ypftEdZnaSIMXr0",
@@ -18,11 +25,6 @@ console.log("is this working?");
  console.log(database);
 
 
-//hide the greeeting card for now 
-$(document).ready(function hiddenCards() {
- $("#greeting-card").hide();
-
-});
 
 
 
@@ -51,7 +53,7 @@ $(document).ready(function hiddenCards() {
 
     // firebase password function to authenticate the password 
 
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(useremail, password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -61,7 +63,6 @@ $(document).ready(function hiddenCards() {
       alert("Oops! There was an error :(  Error : " + errorMessage);
 
     });
-
 
      ////clear input fields
 
@@ -75,7 +76,7 @@ $(document).ready(function hiddenCards() {
  // this givrs us the fire base authentication for the user ---- it gives booleans for what sould happen
  // if the user is signed in then we will hide the sign in form & show a greeting 
  //if the user is not signed in we will just hide the greeting
- // we already have the form showing on line 22-25 when the page loads
+ // we already have the form showing on line 5-7 when the page loads
 
  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -85,10 +86,6 @@ $(document).ready(function hiddenCards() {
         $("#geeting-card").hide();
     }
   });
-
-
-
-
 
 
   
